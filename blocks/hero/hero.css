@@ -5,15 +5,39 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  display: flex;
+  align-items: center;
+  min-height: min(680px, calc(100vh - var(--nav-height)));
+  padding: 96px 24px;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--background-color);
+  background: var(--maroon-color);
+}
+
+.hero::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(48 18 22 / 82%) 0%, rgb(48 18 22 / 55%) 48%, rgb(48 18 22 / 20%) 100%);
+  content: '';
 }
 
 .hero h1 {
-  max-width: 1200px;
+  max-width: 760px;
   margin-left: auto;
   margin-right: auto;
   color: var(--background-color);
+  font-size: clamp(44px, 7vw, 78px);
+  line-height: 1.04;
+}
+
+.hero p {
+  max-width: 650px;
+  margin-right: auto;
+  margin-left: auto;
+  color: rgb(255 250 242 / 92%);
+  font-size: 1.08em;
 }
 
 .hero picture {
@@ -32,6 +56,6 @@
 
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    padding: 128px 32px;
   }
 }
